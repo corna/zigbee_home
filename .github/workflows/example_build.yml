@@ -12,6 +12,7 @@ concurrency:
 jobs:
   build-examples:
     runs-on: self-hosted
+    container: nordicplayground/nrfconnect-sdk:v2.5-branch
     steps:
       - name: Clean-up previous
         run: rm -rf /tmp/zgb_build.*
