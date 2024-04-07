@@ -21,4 +21,4 @@ jobs:
           go-version: '1.21'
           cache-dependency-path: cli/go.sum
       - name: Build
-        run: cd cli && NO_SETUP_ENV=1 go run ./cmd/zigbee/... --config zigbee.yml firmware --workdir $(mktemp -d zgb_build.XXXXXXXXXX) build
+        run: cd cli && NO_SETUP_ENV=1 nrfutil toolchain-manager launch go -- run ./cmd/zigbee/... --config zigbee.yml firmware --workdir $(mktemp -d zgb_build.XXXXXXXXXX) build
