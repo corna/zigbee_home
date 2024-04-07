@@ -97,6 +97,12 @@ func (d *Device) PrependCommonClusters() {
 }
 
 func (g General) GetToochainsPath() (string, string) {
+	// Do not provide custom paths for toolchains
+	// if requested not to.
+	if noSetupEnv() {
+		return "", ""
+	}
+
 	// If env variables are defined - they have higher priority.
 	ncsToolchainPath := os.Getenv("NCS_TOOLCHAIN_BASE")
 	ncsVersion := os.Getenv("NCS_VERSION")
@@ -139,4 +145,10 @@ func resolveStringEnv(input string) string {
 	}
 
 	return os.ExpandEnv(input)
+}
+
+func noSetupEnv() bool {
+	_, ok := os.LookupEnv("NO_SETUP_ENV")
+
+	return ok
 }

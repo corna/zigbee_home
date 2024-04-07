@@ -78,12 +78,8 @@ func WithWorkDir(workDir string) CmdOpt {
 // WithToolchainPath updates environment of command
 // to inlcude necessary variables for building firmware.
 func WithToolchainPath(ncsToolchainBase, zephyrBase string) CmdOpt {
-	// For now check that we don't want to setup env here,
-	// and move it to CLI ASAP.
-	// This could be useful if run inside environment that
-	// is already set up properly.
-	if noSetupEnv() || ncsToolchainBase == "" || zephyrBase == "" {
-		log.Println("environment will not be prepared because either one of the paths is empty, or requested not to")
+	if ncsToolchainBase == "" || zephyrBase == "" {
+		log.Println("environment will not be prepared because at least one of the toolchain paths is empty")
 
 		return func(c *exec.Cmd) {}
 	}
@@ -159,10 +155,4 @@ func updateCurrentPath(envs []string) {
 	if envPath != "" {
 		os.Setenv("PATH", envPath)
 	}
-}
-
-func noSetupEnv() bool {
-	_, ok := os.LookupEnv("NO_SETUP_ENV")
-
-	return ok
 }
