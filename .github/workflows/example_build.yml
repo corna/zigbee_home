@@ -12,7 +12,10 @@ concurrency:
 jobs:
   build-examples:
     runs-on: ubuntu-latest
-    container: nordicplayground/nrfconnect-sdk:v2.5-branch
+    container: 
+      image: nordicplayground/nrfconnect-sdk:v2.5-branch
+      env:
+        HOME: /root
     steps:
       - uses: actions/checkout@v4
       - name: Set up Go
