@@ -63,6 +63,7 @@ func NewDebugUARTLog(config DebugConfig) generator.Extender {
 			appconfig.NewValue("CONFIG_RESET_ON_FATAL_ERROR").Default(appconfig.No),
 			appconfig.NewValue("CONFIG_DEBUG_OPTIMIZATIONS").Default(appconfig.Yes),
 			appconfig.NewValue("CONFIG_DEBUG_THREAD_INFO").Default(appconfig.Yes),
+			appconfig.NewValue("CONFIG_THREAD_NAME").Default(appconfig.Yes),
 			// appconfig.NewValue("CONFIG_SYSTEM_WORKQUEUE_STACK_SIZE").Default(`2048`),
 			// appconfig.NewValue("CONFIG_HEAP_MEM_POOL_SIZE").Default(`2048`),
 
