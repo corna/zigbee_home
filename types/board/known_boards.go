@@ -58,6 +58,7 @@ func bootloaderBoards() map[string][]string {
 		"nrf52_legacy": {
 			"nrf52840dongle_nrf52840",
 		},
+		"adafruit_nrf52_nosd":     {},
 		"adafruit_nrf52_sd132":    {},
 		"adafruit_nrf52_sd140_v6": {},
 		"adafruit_nrf52_sd140_v7": {
@@ -146,6 +147,7 @@ func knownBootloaders() map[string]*Bootloader {
 				// Maybe there will be issues in the future, and they will be fixed here.
 			},
 		},
+		"adafruit_nrf52_nosd":     adafruitConfig(0x0),
 		"adafruit_nrf52_sd132":    adafruitConfig(0x26000),
 		"adafruit_nrf52_sd140_v6": adafruitConfig(0x26000),
 		"adafruit_nrf52_sd140_v7": adafruitConfig(0x27000),
