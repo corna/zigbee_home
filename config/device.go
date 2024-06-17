@@ -28,6 +28,7 @@ type General struct {
 	NCSToolChainBase string `yaml:"ncs_toolchain_base"`
 	NCSVersion       string `yaml:"ncs_version"`
 	ZephyrBase       string `yaml:"zephyr_base"`
+	BoardRoot        string `yaml:"board_root"`
 
 	Manufacturer string `yaml:"manufacturer"`
 	DeviceName   string `yaml:"device_name"`
@@ -95,6 +96,7 @@ func ParseFromReader(defConfig *Device, rdr io.Reader) (*Device, error) {
 	// so be kind and try to resolve
 	defConfig.General.NCSToolChainBase = resolveStringEnv(defConfig.General.NCSToolChainBase)
 	defConfig.General.ZephyrBase = resolveStringEnv(defConfig.General.ZephyrBase)
+	defConfig.General.BoardRoot = resolveStringEnv(defConfig.General.BoardRoot)
 
 	defConfig.PrependCommonClusters()
 

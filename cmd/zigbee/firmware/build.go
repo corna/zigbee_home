@@ -127,6 +127,10 @@ func runBuild(ctx context.Context, device *config.Device, workDir string) error 
 		fmt.Sprintf("-DDTC_OVERLAY_FILE=%s/app.overlay", workDir),
 	)
 
+	if device.General.BoardRoot != "" {
+		build.AddArg(fmt.Sprintf("-DBOARD_ROOT=%s", device.General.BoardRoot))
+	}
+
 	if err := build.Run(ctx, runner.WithToolchainPath(device.General.GetToochainsPath())); err != nil {
 		return fmt.Errorf("build firmware: %w", err)
 	}

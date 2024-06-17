@@ -41,6 +41,10 @@ general:
   #ncs_toolchain_base: ~/toolchains/7795df4459/
   #zephyr_base: ~/ncs/zephyr
 
+  # For custom boards not in Zephyr (as described here https://docs.zephyrproject.org/3.5.0/develop/application/index.html#custom-board-devicetree-and-soc-definitions),
+  # the path of the board's files (i.e., BOARD_ROOT) can be specified here.
+  #board_root: ~/path/to/external/boards/definitions
+
   # zigbee_channels will provide optional list of channels to use.
   # Note: if not defined device will use all available channels,
   # so it is not needed to define this if not specifically necessary.
